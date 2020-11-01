@@ -109,6 +109,9 @@ class AsyncServer:
         self.mongo_mgr = mongo_manager.MongoMgr()
         self.redis_mgr = redis_manager
         
+    def __init__(self):
+        pass
+    
     def convert(self, packet_list):
         return tuple(i for i in packet_list)
     
@@ -131,7 +134,7 @@ class AsyncServer:
             logging.exception(str(e))
             return {'Status': str(e)}
     
-    def convert_hex2decimal(self, packet_bytes, host, port):
+    def convert_hex2decimal(self, packet_bytes, host, port, mqtt_valid=True):
         """
         In the packet, the hexadecimal value is converted to a decimal value, structured in json format, and returned.
 
@@ -179,7 +182,8 @@ class AsyncServer:
                 collection = group + group_code
                 doc_key = '%s-%s-%s' % (pub_time.year, pub_time.month, pub_time.day)
                 pub_time = str(pub_time).replace('.', 'ms')
-                self.mongo_mgr.document_upsert(mongo_db_name, collection, doc_key, pub_time)
+                if mqtt_valid == True:
+                    self.mongo_mgr.document_upsert(mongo_db_name, collection, doc_key, pub_time)
                 modbus_dict = {'equipment_id': group + group_code, 'meta': {'ip': host,
                                                                             'port': port,
                                                                             'ms_time': ms_time,
