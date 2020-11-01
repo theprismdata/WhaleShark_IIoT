@@ -1,4 +1,7 @@
 import unittest
+
+from iiot_mqtt_agent import Agent
+from iiot_server import TcpServer
 from net_socket.iiot_tcp_async_server import AsyncServer
 
 
@@ -7,10 +10,13 @@ class whalesharkiiot_unit_test(unittest.TestCase):
     def system_con(self):
         self.server_ip = 'localhost'
         self.server_port = 1234
-        self.async_svr = AsyncServer()
-    
-    def setUp(self):
-        pass
+        server = TcpServer()
+        server.init_config()
+        # self.mq_channel = server.get_mq_channel()
+        self.redis_con = server.get_redis_con()
+        self.async_svr = AsyncServer(self.redis_con)
+        self.mqtt_agent = Agent()
+        self.mqtt_agent.resource_config()
     
     def make_packet(self, facility_id, sensor_code, pv):
         hd_fid1 = ord(facility_id[0:1])
@@ -36,7 +42,7 @@ class whalesharkiiot_unit_test(unittest.TestCase):
                                 'fun_cd': 'PV', 'sensor_value': 330, 'decimal_point': 1}}
         del origian_msg['meta']['time']
         packet = self.make_packet(facility_id='TS0001', sensor_code='0001', pv=330)
-        _, _, self.modbus_udp = self.async_svr.convert_hex2decimal(packet, self.server_ip, self.server_port, mqtt_valid=False)
+        _, _, self.modbus_udp = self.async_svr.convert_hex2decimal(packet, self.server_ip, self.server_port, mqtt_valid=True)
         del self.modbus_udp['meta']['pub_time']
         del self.modbus_udp['meta']['ms_time']
         
