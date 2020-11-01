@@ -1,3 +1,4 @@
+sudo: required
 language: python
 python:
   - "3.8"
@@ -8,17 +9,10 @@ script: pytest whalesharkiiot_unit_test.py
 services:
   - mongodb
   - redis-server
-  - rabbitmq-server
-dist: xenial
-addons:
-  apt:
-    sources:
-      - ppa:chris-lea/redis-server
-    packages:
-    - redis-tools
-    - redis-server
+  - rabbitmq
+
 before_script:
   - sleep 15
   - mongo facility --eval 'db.createUser({user:"whaleshark",pwd:"whaleshark",roles:["readWrite"]});'
-  - rabbitmqctl authenticate_user "whaleshark" "whaleshark"
-  - rabbitmqctl add_vhost /
+  - rabbitmqctl add_user "whaleshark" "whaleshark"
+
