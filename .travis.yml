@@ -7,6 +7,8 @@ install: "pip install -r requirements.txt"
 script: pytest whalesharkiiot_unit_test.py
 services:
   - mongodb
+  - redis-server
+
 before_script:
   - sleep 15
   - mongo facility --eval 'db.createUser({user:"whaleshark",pwd:"whaleshark",roles:["readWrite"]});'
