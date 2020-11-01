@@ -1,4 +1,7 @@
 import unittest
+
+from iiot_mqtt_agent import Agent
+from iiot_server import TcpServer
 from net_socket.iiot_tcp_async_server import AsyncServer
 
 
@@ -7,10 +10,13 @@ class whalesharkiiot_unit_test(unittest.TestCase):
     def system_con(self):
         self.server_ip = 'localhost'
         self.server_port = 1234
-        self.async_svr = AsyncServer()
-    
-    def setUp(self):
-        pass
+        server = TcpServer()
+        server.init_config()
+        # self.mq_channel = server.get_mq_channel()
+        self.redis_con = server.get_redis_con()
+        self.async_svr = AsyncServer(self.redis_con)
+        self.mqtt_agent = Agent()
+        self.mqtt_agent.resource_config()
     
     def make_packet(self, facility_id, sensor_code, pv):
         hd_fid1 = ord(facility_id[0:1])

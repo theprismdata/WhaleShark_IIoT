@@ -109,9 +109,6 @@ class AsyncServer:
         self.mongo_mgr = mongo_manager.MongoMgr()
         self.redis_mgr = redis_manager
         
-    def __init__(self):
-        pass
-    
     def convert(self, packet_list):
         return tuple(i for i in packet_list)
     
