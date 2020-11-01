@@ -36,7 +36,7 @@ class whalesharkiiot_unit_test(unittest.TestCase):
                                 'fun_cd': 'PV', 'sensor_value': 330, 'decimal_point': 1}}
         del origian_msg['meta']['time']
         packet = self.make_packet(facility_id='TS0001', sensor_code='0001', pv=330)
-        _, _, self.modbus_udp = self.async_svr.convert_hex2decimal(packet, self.server_ip, self.server_port, mqtt_valid=False)
+        _, _, self.modbus_udp = self.async_svr.convert_hex2decimal(packet, self.server_ip, self.server_port, mqtt_valid=True)
         del self.modbus_udp['meta']['pub_time']
         del self.modbus_udp['meta']['ms_time']
         
