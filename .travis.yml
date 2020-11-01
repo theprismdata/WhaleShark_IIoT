@@ -9,7 +9,14 @@ services:
   - mongodb
   - redis-server
   - rabbitmq-server
-
+dist: xenial
+addons:
+  apt:
+    sources:
+      - ppa:chris-lea/redis-server
+    packages:
+    - redis-tools
+    - redis-server
 before_script:
   - sleep 15
   - mongo facility --eval 'db.createUser({user:"whaleshark",pwd:"whaleshark",roles:["readWrite"]});'
