@@ -14,5 +14,4 @@ services:
 before_script:
   - sleep 15
   - mongo facility --eval 'db.createUser({user:"whaleshark",pwd:"whaleshark",roles:["readWrite"]});'
-  - rabbitmqctl add_user "whaleshark" "whaleshark"
 
