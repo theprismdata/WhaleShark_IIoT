@@ -115,7 +115,8 @@ class Agent:
         pub_doc = self.mongo_mgr.document_bykey('facility', table_name, {'DAY': day})
         if pub_doc is not None:
             self.mongo_mgr.document_upsert('facility', table_name, day, pub_time, status='CHECK')
-    
+        else:
+            logging.debug('Mongo exception facility:'+table_name+':DAY'+ str(day)+' NO EXIST')
         fields['me_time'] = me_timestamp
         influx_json = [{
             'measurement': table_name,
