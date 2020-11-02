@@ -177,7 +177,7 @@ class AsyncServer:
                 pub_time = datetime.fromtimestamp(time.time())
                 mongo_db_name = 'facility'
                 collection = group + group_code
-                doc_key = '%s-%s-%s' % (pub_time.year, pub_time.month, pub_time.day)
+                doc_key = '{:d}-{:02d}-{:02d}'.format(pub_time.year, pub_time.month, pub_time.day)
                 pub_time = str(pub_time).replace('.', 'ms')
                 if mqtt_valid == True:
                     self.mongo_mgr.document_upsert(mongo_db_name, collection, doc_key, pub_time)
