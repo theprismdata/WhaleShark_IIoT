@@ -10,7 +10,19 @@ WhaleShark IIoT, an open source monitoring system for smart factories, is a IIoT
    - The factory manager can monitor the status of the equipment in real time by checking the values of various sensors installed in the equipment.
 
 ## Documents
- - [Document Home] Coming soon...
+ - 1th Step: Install Docker 
+ - 2th Step: Run redis container
+ - docker pull redis
+docker run --name whaleshark-redis -d -p 6379:6379 redis
+docker run -it --link whaleshark-redis:redis --rm redis redis-cli -h redis -p 6379
+if container is exist
+ docker restart  whaleshark-redis
+ - 3th Step: Run rabbitmq container
+ - docker run -d --hostname whaleshark --name whaleshark-rabbit -p 5672:5672 \
+-p 8080:15672 -e RABBITMQ_DEFAULT_USER=whaleshark -e \
+RABBITMQ_DEFAULT_PASS=whaleshark rabbitmq:3-management
+if container is exist
+ docker restart  whaleshark-rabbit
 
 ## Download
  - [Last Release] (https://github.com/dataignitelab/WhaleShark_IIoT)
