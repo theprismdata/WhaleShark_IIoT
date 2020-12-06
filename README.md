@@ -23,7 +23,10 @@ if container is exist
 RABBITMQ_DEFAULT_PASS=whaleshark rabbitmq:3-management
 if container is exist
  docker restart  whaleshark-rabbit
-
+ 
+## Reference 
+ - https://theprismdata.medium.com
+ 
 ## Download
  - [Last Release] (https://github.com/dataignitelab/WhaleShark_IIoT)
 
