@@ -27,7 +27,7 @@ def get_serialinterface(port, slaveaddr, mode, baudrate):
     
 if __name__ == '__main__':
     instrument_list = []
-    accessinfo_df = read_controller(filepath='../controllerinfo.csv')
+    accessinfo_df = read_controller(filepath='controllerinfo.csv')
     fun_length = accessinfo_df.shape[0]
     for index, row in accessinfo_df.iterrows():
         conn = get_serialinterface(port='/dev/tty.usbserial-AQ00WOQH',
