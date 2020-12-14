@@ -4,7 +4,7 @@ setup(
     name='whalesharkiiot',
     version='0.0.1',
     description='whalesharkiiot pip install',
-    url='https://github.com/dataignitelab/WhaleShark_IIoT.git',
+    url='https://github.com/theprismdata/WhaleShark_IIoT.git',
     author='theprismdata',
     author_email='theprismdata@gmail.com',
     license='Apache2.0',

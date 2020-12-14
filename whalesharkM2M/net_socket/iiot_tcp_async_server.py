@@ -5,8 +5,8 @@ import json
 import time
 from datetime import datetime
 import pika
-from whalesharkM2MServer import mongo_manager
-from whalesharkM2MServer.net_socket.signal_killer import GracefulInterruptHandler
+from whalesharkM2M import mongo_manager
+from whalesharkM2M.net_socket.signal_killer import GracefulInterruptHandler
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', stream=sys.stdout, level=logging.DEBUG,
                     datefmt='%Y-%m-%d %H:%M:%S')

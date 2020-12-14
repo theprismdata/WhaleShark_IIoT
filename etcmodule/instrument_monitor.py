@@ -80,7 +80,7 @@ class sock_client:
 if __name__ == '__main__':
     slaves_desc={}
 
-    with open('instrument_driver/config/instrument_desc.json','r') as json_file:
+    with open('../instrument_driver/config/instrument_desc.json', 'r') as json_file:
         instrument_json=json.load(json_file)
 
         print(instrument_json)

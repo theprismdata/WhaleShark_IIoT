@@ -6,7 +6,7 @@ import yaml
 import sys
 import json
 import pika
-from whalesharkM2MServer.net_socket import AsyncServer
+from whalesharkM2M.net_socket import AsyncServer
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',stream=sys.stdout, level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
 logging.getLogger("pika").propagate = False

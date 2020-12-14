@@ -6,7 +6,7 @@ import sys
 import redis
 from influxdb import InfluxDBClient
 import time
-from whalesharkM2MServer import mongo_manager
+from whalesharkM2M import mongo_manager
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
                     stream=sys.stdout, level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')

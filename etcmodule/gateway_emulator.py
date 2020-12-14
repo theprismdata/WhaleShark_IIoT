@@ -32,7 +32,7 @@ def convert(fields):
 
 
 if __name__ == '__main__':
-    csv_test = pd.read_csv('sample_data/TS_small.csv')
+    csv_test = pd.read_csv('../sample_data/TS_small.csv')
     Emulation_Data = csv_test.drop(['name', 'time', 'INNER_PRESS_1', 'OVER_TEMP_1', 'PUMP_PRESS_1', 'TEMPERATURE1_1',
                                     'TS_AMP1_(R)_1', 'TS_AMP1_(S)_1', 'TS_AMP1_(T)_1', 'TS_VOLT1_(RS)_1',
                                     'TS_VOLT1_(RT)_1', 'TS_VOLT1_(ST)_1'], axis=1)
