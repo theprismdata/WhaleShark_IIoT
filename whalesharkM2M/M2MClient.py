@@ -27,7 +27,23 @@ def get_serialinterface(port, slaveaddr, mode, baudrate):
     instrument.serial.timeout = 1  # seconds
     instrument.mode = mode
     return instrument
-    
+
+
+def send_status(instrument_list, conn):
+    '''
+    설비의 상태를 읽고 확인한다.
+    '''
+    for instrument in instrument_list:
+        try:
+            conn = instrument['conn']
+            address = instrument['address']
+            print(address)
+            print(conn.read_register(int(address, 16), 0, functioncode=int('0x04', 16)))
+            time.sleep(1)
+        except IOError:
+            print("Failed to read from instrument")
+
+
 if __name__ == '__main__':
     '''
     서버와 연결될 소켓을 열고 설비 정보를 읽어 정보를 메모리에 저장한 후 설비로 부터 측정값, 상태값 등을 읽어봐 서버로 전송한다. 
@@ -84,12 +100,4 @@ if __name__ == '__main__':
                 print(e)
                 break
         else:
-            for instrument in instrument_list:
-                try:
-                    conn = instrument['conn']
-                    address = instrument['address']
-                    print(address)
-                    print(conn.read_register(int(address, 16), 0, functioncode=int('0x04', 16)))
-                    time.sleep(1)
-                except IOError:
-                    print("Failed to read from instrument")
+            send_status(instrument_list, conn)
