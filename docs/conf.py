@@ -17,9 +17,9 @@ sys.path.insert(0, '/Users/prismdata/Documents/1.Data_Centric/3.1.nipa_git/Whale
 
 # -- Project information -----------------------------------------------------
 
-project = 'WhaleShark_IIoT'
-copyright = '2021, HongJoong.Shin'
-author = 'HongJoong.Shin'
+project = 'whalesharkM2M'
+copyright = '2021, Shin.Hongjoong'
+author = 'Shin.Hongjoong'
 
 
 # -- General configuration ---------------------------------------------------
@@ -46,7 +46,7 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','sphinx_rtd_theme']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -54,7 +54,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','sphinx_rtd_theme']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'alabaster'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
