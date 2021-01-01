@@ -1,0 +1,18 @@
+instrument\_driver.autonics package
+===================================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   instrument_driver.autonics.instrument_bridge
+
+Module contents
+---------------
+
+.. automodule:: instrument_driver.autonics
+   :members:
+   :undoc-members:
+   :show-inheritance:

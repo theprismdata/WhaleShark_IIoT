@@ -1,0 +1,7 @@
+instrument\_driver.autonics.instrument\_bridge module
+=====================================================
+
+.. automodule:: instrument_driver.autonics.instrument_bridge
+   :members:
+   :undoc-members:
+   :show-inheritance:

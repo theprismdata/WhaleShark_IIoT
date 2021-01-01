@@ -7,7 +7,9 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   whalesharkM2M.net_socket
+   whalesharkM2M.config
+   whalesharkM2M.datautil
+   whalesharkM2M.msgmanager
 
 Submodules
 ----------
@@ -16,9 +18,8 @@ Submodules
    :maxdepth: 4
 
    whalesharkM2M.M2MClient
-   whalesharkM2M.iiot_mqtt_agent
-   whalesharkM2M.iiot_server
-   whalesharkM2M.mongo_manager
+   whalesharkM2M.M2MServer
+   whalesharkM2M.TSDBAgent
 
 Module contents
 ---------------

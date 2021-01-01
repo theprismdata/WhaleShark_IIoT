@@ -2,7 +2,7 @@ import socket
 import time
 import pandas as pd
 
-HOST = '127.0.0.1'
+HOST = 'onsite-monitor.xip.kr'
 PORT = 1233
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((HOST, PORT))
