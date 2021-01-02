@@ -14,6 +14,12 @@ import os
 import sys
 os.chdir('../whalesharkM2M')
 print('현재 경로', os.getcwd())
+path = './'
+file_list = os.listdir(path)
+file_list_py = [file for file in file_list]
+print ("file_list_py: {}".format(file_list_py))
+
+
 # -- Project information -----------------------------------------------------
 
 project = 'whalesharkM2M'
