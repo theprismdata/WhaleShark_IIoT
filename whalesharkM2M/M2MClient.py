@@ -19,7 +19,8 @@ port = 1233
 
 def get_serialinterface(port, slaveaddr, mode, baudrate):
     """
-    Return the resource assigned serial port with system
+    시스템에 연결된 직렬 포트 정보를 할당받아 리턴한다.
+    Allocates and returns serial port information connected to the system.
     """
     instrument = minimalmodbus.Instrument(port, slaveaddr)
     instrument.serial.baudrate = baudrate  # Baud
