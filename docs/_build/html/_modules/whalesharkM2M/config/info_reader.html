@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>whalesharkM2M.config.info_reader &#8212; whalesharkM2M  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for whalesharkM2M.config.info_reader</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<div class="viewcode-block" id="read_controller"><a class="viewcode-back" href="../../../whalesharkM2M.config.html#whalesharkM2M.config.info_reader.read_controller">[docs]</a><span class="k">def</span> <span class="nf">read_controller</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return dataframe from csv file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">controller_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">controller_df</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="read_deviceinfo"><a class="viewcode-back" href="../../../whalesharkM2M.config.html#whalesharkM2M.config.info_reader.read_deviceinfo">[docs]</a><span class="k">def</span> <span class="nf">read_deviceinfo</span><span class="p">(</span><span class="n">config_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return information dictionary which has device info (controllerinfo.csv)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="n">ctrl_info_path</span> <span class="o">=</span> <span class="n">config_path</span> <span class="o">+</span> <span class="s1">&#39;/controllerinfo.csv&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read dev info from:&#39;</span><span class="o">+</span><span class="n">ctrl_info_path</span><span class="p">)</span>
+        <span class="n">ci_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ctrl_info_path</span><span class="p">)</span>
+        <span class="n">device_info</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">dev_list</span> <span class="o">=</span> <span class="n">ci_df</span><span class="o">.</span><span class="n">DEVNAME</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">dev_name</span> <span class="ow">in</span> <span class="n">dev_list</span><span class="p">:</span>
+            <span class="n">code_list</span> <span class="o">=</span> <span class="n">ci_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ci_df</span><span class="p">[</span><span class="s1">&#39;DEVNAME&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">dev_name</span><span class="p">]</span><span class="o">.</span><span class="n">SENSOR_CODE</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">device_info</span><span class="p">[</span><span class="n">dev_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">code_name</span> <span class="ow">in</span> <span class="n">code_list</span><span class="p">:</span>
+                <span class="n">sensor_name</span> <span class="o">=</span> <span class="n">ci_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+                    <span class="s2">&quot;DEVNAME == &#39;&quot;</span> <span class="o">+</span> <span class="n">dev_name</span> <span class="o">+</span> <span class="s2">&quot;&#39; and SENSOR_CODE == &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">code_name</span><span class="p">))</span><span class="o">.</span><span class="n">SENSOR_NAME</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">dev_name</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">code_name</span><span class="p">),</span> <span class="n">sensor_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">device_info</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">device_info</span><span class="p">[</span><span class="n">dev_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">code_name</span><span class="p">):</span> <span class="n">sensor_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]}</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">device_info</span><span class="p">[</span><span class="n">dev_name</span><span class="p">][</span><span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">code_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">sensor_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">device_info</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">whalesharkM2M</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whalesharkM2M.html">whalesharkM2M package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
