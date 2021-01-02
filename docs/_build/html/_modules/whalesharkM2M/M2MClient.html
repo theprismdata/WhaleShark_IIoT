@@ -167,9 +167,9 @@
 
 
 <div class="viewcode-block" id="get_serialinterface"><a class="viewcode-back" href="../../whalesharkM2M.M2MClient.html#whalesharkM2M.M2MClient.get_serialinterface">[문서]</a><span class="k">def</span> <span class="nf">get_serialinterface</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">slaveaddr</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">baudrate</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    시스템과 연결될 직렬포트에 대한 정보를 할당하여 리턴한다.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the resource assigned serial port with system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">instrument</span> <span class="o">=</span> <span class="n">minimalmodbus</span><span class="o">.</span><span class="n">Instrument</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">slaveaddr</span><span class="p">)</span>
     <span class="n">instrument</span><span class="o">.</span><span class="n">serial</span><span class="o">.</span><span class="n">baudrate</span> <span class="o">=</span> <span class="n">baudrate</span>  <span class="c1"># Baud</span>
     <span class="n">instrument</span><span class="o">.</span><span class="n">serial</span><span class="o">.</span><span class="n">bytesize</span> <span class="o">=</span> <span class="mi">8</span>
@@ -181,9 +181,9 @@
 
 
 <div class="viewcode-block" id="send_status"><a class="viewcode-back" href="../../whalesharkM2M.M2MClient.html#whalesharkM2M.M2MClient.send_status">[문서]</a><span class="k">def</span> <span class="nf">send_status</span><span class="p">(</span><span class="n">instrument_list</span><span class="p">,</span> <span class="n">conn</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    설비의 상태를 읽고 확인한다.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print device status</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">instrument</span> <span class="ow">in</span> <span class="n">instrument_list</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">conn</span> <span class="o">=</span> <span class="n">instrument</span><span class="p">[</span><span class="s1">&#39;conn&#39;</span><span class="p">]</span>
@@ -196,9 +196,6 @@
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    서버와 연결될 소켓을 열고 설비 정보를 읽어 정보를 메모리에 저장한 후 설비로 부터 측정값, 상태값 등을 읽어봐 서버로 전송한다. </span>
-<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">client_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>

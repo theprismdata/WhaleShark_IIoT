@@ -151,9 +151,9 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <div class="viewcode-block" id="read_controller"><a class="viewcode-back" href="../../../whalesharkM2M.config.info_reader.html#whalesharkM2M.config.info_reader.read_controller">[문서]</a><span class="k">def</span> <span class="nf">read_controller</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    filepath의 csv타입 데이터를 dataframe으로 변환하여 리턴한다.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return dataframe from csv file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">controller_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">controller_df</span>
@@ -161,9 +161,9 @@
         <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
         
 <div class="viewcode-block" id="read_deviceinfo"><a class="viewcode-back" href="../../../whalesharkM2M.config.info_reader.html#whalesharkM2M.config.info_reader.read_deviceinfo">[문서]</a><span class="k">def</span> <span class="nf">read_deviceinfo</span><span class="p">(</span><span class="n">config_path</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    controllerinfo.csv로부터 장비 연결 정보들을 로딩한다.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return information dictionary which has device info (controllerinfo.csv)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
         <span class="n">ctrl_info_path</span> <span class="o">=</span> <span class="n">config_path</span> <span class="o">+</span> <span class="s1">&#39;/controllerinfo.csv&#39;</span>
