@@ -1,7 +1,0 @@
-system\_config module
-=====================
-
-.. automodule:: system_config
-   :members:
-   :undoc-members:
-   :show-inheritance:

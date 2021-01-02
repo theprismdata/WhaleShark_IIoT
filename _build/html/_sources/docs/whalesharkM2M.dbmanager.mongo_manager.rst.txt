@@ -1,7 +1,0 @@
-whalesharkM2M.dbmanager.mongo\_manager module
-=============================================
-
-.. automodule:: whalesharkM2M.dbmanager.mongo_manager
-   :members:
-   :undoc-members:
-   :show-inheritance:

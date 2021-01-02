@@ -12,14 +12,14 @@
 #
 import os
 import sys
-sys.path.insert(0, '/Users/prismdata/Documents/1.Data_Centric/3.1.nipa_git/WhaleShark_IIoT/')
+sys.path.insert(0, '/Users/prismdata/Documents/1.Data_Centric/3.1.nipa_git/WhaleShark_IIoT')
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'whalesharkM2M'
-copyright = '2021, Shin.Hongjoong'
-author = 'Shin.Hongjoong'
+project = 'WhaleShark_IIoT'
+copyright = '2021, HongJoong.Shin'
+author = 'HongJoong.Shin'
 
 
 # -- General configuration ---------------------------------------------------
@@ -46,7 +46,7 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','sphinx_rtd_theme']
 
 
 # -- Options for HTML output -------------------------------------------------
