@@ -15,18 +15,11 @@ import sys
 # sys.path.insert(0, '../WhaleShark_IIoT/whalesharkM2M')
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 print('현재 경로', os.getcwd())
-from whalesharkM2M import M2MClient
 # -- Project information -----------------------------------------------------
 
 project = 'whalesharkM2M'
 copyright = '2021, HongJoong.Shin'
 author = 'HongJoong.Shin'
-
-# -- Project information -----------------------------------------------------
-
-project = 'whalesharkM2M'
-copyright = '2021, Author'
-author = 'Author'
 
 
 # -- General configuration ---------------------------------------------------
