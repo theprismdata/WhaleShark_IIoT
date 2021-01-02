@@ -12,9 +12,7 @@
 #
 import os
 import sys
-cur_path = os.getcwd()
-cur_path = cur_path.replace('docs','whalesharkM2M')
-sys.path.append(cur_path)
+sys.path.insert(0, '/Users/prismdata/Documents/1.Data_Centric/3.1.nipa_git/WhaleShark_IIoT')
 print('현재 경로', os.getcwd())
 # -- Project information -----------------------------------------------------
 
