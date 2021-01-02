@@ -12,17 +12,13 @@
 #
 import os
 import sys
-os.chdir('../whalesharkM2M')
-print('현재 경로', os.getcwd())
-path = './'
-file_list = os.listdir(path)
-file_list_py = [file for file in file_list]
-print ("file_list_py: {}".format(file_list_py))
-
+sys.path.insert(0, '../whalesharkM2M')
+sys.path.insert(0, '/Users/prismdata/Documents/1.Data_Centric/3.1.nipa_git/WhaleShark_IIoT')
+print('경로 목록', sys.path)
 
 # -- Project information -----------------------------------------------------
 
-project = 'whalesharkM2M'
+project = 'WhaleShark_IIoT'
 copyright = '2021, HongJoong.Shin'
 author = 'HongJoong.Shin'
 
