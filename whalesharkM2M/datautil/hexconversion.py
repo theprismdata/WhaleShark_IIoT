@@ -27,7 +27,6 @@ def int2hex(arg_int):
 
 def hex2int(arg_hex):
     """
-    16진수를 정수로 변환하여 리턴한다.
     Return hex value from integer values
     """
     return int(arg_hex, 16)
