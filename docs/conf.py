@@ -12,19 +12,16 @@
 #
 import os
 import sys
-# os.path.abspath('../whalesharkM2M')
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from whalesharkM2M import *
-
-
 
 print('경로',os.path)
 
 # -- Project information -----------------------------------------------------
 
-project = 'whalesharkM2M'
-copyright = '2021, Author'
-author = 'Author'
+project = 'WhaleShark_IIoT'
+copyright = '2021, HongJoong.Shin'
+author = 'HongJoong.Shin'
 
 
 # -- General configuration ---------------------------------------------------
@@ -59,7 +56,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
