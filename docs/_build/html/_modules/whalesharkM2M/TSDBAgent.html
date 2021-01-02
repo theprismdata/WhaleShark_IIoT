@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="ko" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>whalesharkM2M.TSDBAgent &mdash; whalesharkM2M  documentation</title>
+  <title>whalesharkM2M.TSDBAgent &mdash; whalesharkM2M  문서</title>
   
 
   
@@ -29,12 +29,13 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="index" title="색인" href="../../genindex.html" />
+    <link rel="search" title="검색" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -128,7 +129,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../index.html">Module code</a> &raquo;</li>
+          <li><a href="../index.html">모듈 코드</a> &raquo;</li>
         
       <li>whalesharkM2M.TSDBAgent</li>
     
@@ -145,7 +146,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for whalesharkM2M.TSDBAgent</h1><div class="highlight"><pre>
+  <h1>whalesharkM2M.TSDBAgent의 소스 코드</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -159,7 +160,7 @@
                     <span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;pika&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span>
 
-<div class="viewcode-block" id="Agent"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent">[docs]</a><span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
+<div class="viewcode-block" id="Agent"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent">[문서]</a><span class="k">class</span> <span class="nc">Agent</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;config/config_server_develop.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="n">config_obj</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">)</span>
@@ -177,7 +178,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">influx_db</span> <span class="o">=</span> <span class="n">config_obj</span><span class="p">[</span><span class="s1">&#39;iiot_server&#39;</span><span class="p">][</span><span class="s1">&#39;influxdb&#39;</span><span class="p">][</span><span class="s1">&#39;db&#39;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="Agent.connect_redis"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.connect_redis">[docs]</a>    <span class="k">def</span> <span class="nf">connect_redis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+<div class="viewcode-block" id="Agent.connect_redis"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.connect_redis">[문서]</a>    <span class="k">def</span> <span class="nf">connect_redis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get connector for redis</span>
 <span class="sd">        If you don&#39;t have redis, you can use redis on docker with follow steps.</span>
@@ -204,7 +205,7 @@
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exp</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">redis_obj</span></div>
 
-<div class="viewcode-block" id="Agent.get_influxdb"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.get_influxdb">[docs]</a>    <span class="k">def</span> <span class="nf">get_influxdb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pwd</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
+<div class="viewcode-block" id="Agent.get_influxdb"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.get_influxdb">[문서]</a>    <span class="k">def</span> <span class="nf">get_influxdb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">pwd</span><span class="p">,</span> <span class="n">db</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param host: InfluxDB access host ip</span>
 <span class="sd">        :param port: InfluxDB access port</span>
@@ -220,7 +221,7 @@
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exp</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">client</span></div>
 
-<div class="viewcode-block" id="Agent.get_messagequeue"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.get_messagequeue">[docs]</a>    <span class="k">def</span> <span class="nf">get_messagequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+<div class="viewcode-block" id="Agent.get_messagequeue"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.get_messagequeue">[문서]</a>    <span class="k">def</span> <span class="nf">get_messagequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        If you don&#39;t have rabbitmq, you can use docker.</span>
 <span class="sd">        docker run -d --hostname whaleshark --name whaleshark-rabbit \</span>
@@ -244,7 +245,7 @@
     
         <span class="k">return</span> <span class="n">channel</span></div>
 
-<div class="viewcode-block" id="Agent.callback_mqreceive"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.callback_mqreceive">[docs]</a>    <span class="k">def</span> <span class="nf">callback_mqreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+<div class="viewcode-block" id="Agent.callback_mqreceive"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.callback_mqreceive">[문서]</a>    <span class="k">def</span> <span class="nf">callback_mqreceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
         <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
         <span class="n">facility_msg_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
         <span class="n">table_name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">facility_msg_json</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
@@ -272,7 +273,7 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exp</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exp</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Agent.resource_config"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.resource_config">[docs]</a>    <span class="k">def</span> <span class="nf">resource_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Agent.resource_config"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.resource_config">[문서]</a>    <span class="k">def</span> <span class="nf">resource_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">influxdb_mgr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_influxdb</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">influx_host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">influx_port</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">influx_id</span><span class="p">,</span> <span class="n">pwd</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">influx_pwd</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">influx_db</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">influxdb_mgr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;influxdb configuration fail&#39;</span><span class="p">)</span>
@@ -283,10 +284,10 @@
             
         <span class="bp">self</span><span class="o">.</span><span class="n">redis_mgr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect_redis</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">redis_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis_port</span><span class="p">)</span></div>
     
-<div class="viewcode-block" id="Agent.get_influxdb_mgr"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.get_influxdb_mgr">[docs]</a>    <span class="k">def</span> <span class="nf">get_influxdb_mgr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Agent.get_influxdb_mgr"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.get_influxdb_mgr">[문서]</a>    <span class="k">def</span> <span class="nf">get_influxdb_mgr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">influxdb_mgr</span></div>
     
-<div class="viewcode-block" id="Agent.syncmessage"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.syncmessage">[docs]</a>    <span class="k">def</span> <span class="nf">syncmessage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Agent.syncmessage"><a class="viewcode-back" href="../../whalesharkM2M.TSDBAgent.html#whalesharkM2M.TSDBAgent.Agent.syncmessage">[문서]</a>    <span class="k">def</span> <span class="nf">syncmessage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">devinfo</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">redis_mgr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dev_info&#39;</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">dev_id</span> <span class="ow">in</span> <span class="n">devinfo</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mq_channel</span><span class="o">.</span><span class="n">queue_declare</span><span class="p">(</span><span class="n">queue</span><span class="o">=</span><span class="n">dev_id</span><span class="p">,</span> <span class="n">exclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -317,7 +318,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2021, Author
+        &copy; 저작권 2021, Author
 
     </p>
   </div>

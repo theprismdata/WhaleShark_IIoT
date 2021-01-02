@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="ko" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>whalesharkM2M.M2MServer module &mdash; whalesharkM2M  documentation</title>
+  <title>whalesharkM2M.M2MServer module &mdash; whalesharkM2M  문서</title>
   
 
   
@@ -29,12 +29,13 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
     <link rel="next" title="whalesharkM2M.TSDBAgent module" href="whalesharkM2M.TSDBAgent.html" />
     <link rel="prev" title="whalesharkM2M.M2MClient module" href="whalesharkM2M.M2MClient.html" /> 
 </head>
@@ -162,14 +163,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-whalesharkM2M.M2MServer">
-<span id="whalesharkm2m-m2mserver-module"></span><h1>whalesharkM2M.M2MServer module<a class="headerlink" href="#module-whalesharkM2M.M2MServer" title="Permalink to this headline">¶</a></h1>
+<span id="whalesharkm2m-m2mserver-module"></span><h1>whalesharkM2M.M2MServer module<a class="headerlink" href="#module-whalesharkM2M.M2MServer" title="제목 주소">¶</a></h1>
 <dl class="py class">
 <dt id="whalesharkM2M.M2MServer.TcpServer">
-<em class="property">class </em><code class="sig-prename descclassname">whalesharkM2M.M2MServer.</code><code class="sig-name descname">TcpServer</code><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">whalesharkM2M.M2MServer.</code><code class="sig-name descname">TcpServer</code><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer"><span class="viewcode-link">[소스]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer" title="정의 주소">¶</a></dt>
+<dd><p>기반 클래스: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt id="whalesharkM2M.M2MServer.TcpServer.config_equip_desc">
-<code class="sig-name descname">config_equip_desc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">port</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.config_equip_desc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.config_equip_desc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">config_equip_desc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">port</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.config_equip_desc"><span class="viewcode-link">[소스]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.config_equip_desc" title="정의 주소">¶</a></dt>
 <dd><p>Configure redis for equipment sensor desc(sensor_cd)
 key : const sensor_cd
 value : dictionary or map has sensor_cd:sensor description
@@ -178,15 +179,15 @@ value : dictionary or map has sensor_cd:sensor description
 
 <dl class="py method">
 <dt id="whalesharkM2M.M2MServer.TcpServer.connect_redis">
-<code class="sig-name descname">connect_redis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">host</span></em>, <em class="sig-param"><span class="n">port</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.connect_redis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.connect_redis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">connect_redis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">host</span></em>, <em class="sig-param"><span class="n">port</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.connect_redis"><span class="viewcode-link">[소스]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.connect_redis" title="정의 주소">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>host</strong> – redis access host ip</p></li>
 <li><p><strong>port</strong> – redis access port</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">반환값</dt>
 <dd class="field-even"><p>redis connector</p>
 </dd>
 </dl>
@@ -194,7 +195,7 @@ value : dictionary or map has sensor_cd:sensor description
 
 <dl class="py method">
 <dt id="whalesharkM2M.M2MServer.TcpServer.get_messagequeue">
-<code class="sig-name descname">get_messagequeue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">port</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.get_messagequeue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.get_messagequeue" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_messagequeue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">address</span></em>, <em class="sig-param"><span class="n">port</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.get_messagequeue"><span class="viewcode-link">[소스]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.get_messagequeue" title="정의 주소">¶</a></dt>
 <dd><p>get message queue connector (rabbit mq) with address, port
 :param address: rabbit mq server ip
 :param port: rabbitmq server port(AMQP)
@@ -203,22 +204,22 @@ value : dictionary or map has sensor_cd:sensor description
 
 <dl class="py method">
 <dt id="whalesharkM2M.M2MServer.TcpServer.get_mq_channel">
-<code class="sig-name descname">get_mq_channel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.get_mq_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.get_mq_channel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_mq_channel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.get_mq_channel"><span class="viewcode-link">[소스]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.get_mq_channel" title="정의 주소">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="whalesharkM2M.M2MServer.TcpServer.get_redis_con">
-<code class="sig-name descname">get_redis_con</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.get_redis_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.get_redis_con" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_redis_con</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.get_redis_con"><span class="viewcode-link">[소스]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.get_redis_con" title="정의 주소">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="whalesharkM2M.M2MServer.TcpServer.get_server_socket">
-<code class="sig-name descname">get_server_socket</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.get_server_socket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.get_server_socket" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_server_socket</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.get_server_socket"><span class="viewcode-link">[소스]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.get_server_socket" title="정의 주소">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="whalesharkM2M.M2MServer.TcpServer.init_config">
-<code class="sig-name descname">init_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.init_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.init_config" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">init_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MServer.html#TcpServer.init_config"><span class="viewcode-link">[소스]</span></a><a class="headerlink" href="#whalesharkM2M.M2MServer.TcpServer.init_config" title="정의 주소">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -246,7 +247,7 @@ value : dictionary or map has sensor_cd:sensor description
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2021, Author
+        &copy; 저작권 2021, Author
 
     </p>
   </div>
