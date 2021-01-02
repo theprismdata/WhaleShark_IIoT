@@ -12,14 +12,15 @@
 #
 import os
 import sys
-sys.path.insert(0, '/Users/prismdata/Documents/1.Data_Centric/3.1.nipa_git/WhaleShark_IIoT')
-
-
+# sys.path.insert(0, '../WhaleShark_IIoT/whalesharkM2M')
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+print('현재 경로', os.getcwd())
+from whalesharkM2M import M2MClient
 # -- Project information -----------------------------------------------------
 
-project = 'WhaleShark_IIoT'
-copyright = '2021, HongJoong.Shin'
-author = 'HongJoong.Shin'
+project = 'whalesharkM2M'
+copyright = '2021, Author'
+author = 'Author'
 
 
 # -- General configuration ---------------------------------------------------
@@ -46,7 +47,7 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store','sphinx_rtd_theme']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
 # -- Options for HTML output -------------------------------------------------
