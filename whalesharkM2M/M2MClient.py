@@ -6,7 +6,9 @@ import time
 import minimalmodbus
 import serial
 from datetime import datetime
-
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from whalesharkM2M.datautil.hexconversion import str2hex, int2hex
 from whalesharkM2M.config.info_reader import read_controller
 
