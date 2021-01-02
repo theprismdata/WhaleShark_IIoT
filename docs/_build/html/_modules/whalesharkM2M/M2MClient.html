@@ -157,10 +157,10 @@
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
-<span class="kn">from</span> <span class="nn">whalesharkM2M.datautil.hexconversion</span> <span class="kn">import</span> <span class="n">str2hex</span><span class="p">,</span> <span class="n">int2hex</span>
-<span class="kn">from</span> <span class="nn">whalesharkM2M.config.info_reader</span> <span class="kn">import</span> <span class="n">read_controller</span>
-<span class="c1"># from datautil.hexconversion import str2hex, int2hex</span>
-<span class="c1"># from config.info_reader import read_controller</span>
+<span class="c1"># from whalesharkM2M.datautil.hexconversion import str2hex, int2hex</span>
+<span class="c1"># from whalesharkM2M.config.info_reader import read_controller</span>
+<span class="kn">from</span> <span class="nn">datautil.hexconversion</span> <span class="kn">import</span> <span class="n">str2hex</span><span class="p">,</span> <span class="n">int2hex</span>
+<span class="kn">from</span> <span class="nn">config.info_reader</span> <span class="kn">import</span> <span class="n">read_controller</span>
 
 <span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
 <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>

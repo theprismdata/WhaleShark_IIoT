@@ -8,10 +8,10 @@ import serial
 from datetime import datetime
 import os
 print(os.getcwd())
-from whalesharkM2M.datautil.hexconversion import str2hex, int2hex
-from whalesharkM2M.config.info_reader import read_controller
-# from datautil.hexconversion import str2hex, int2hex
-# from config.info_reader import read_controller
+# from whalesharkM2M.datautil.hexconversion import str2hex, int2hex
+# from whalesharkM2M.config.info_reader import read_controller
+from datautil.hexconversion import str2hex, int2hex
+from config.info_reader import read_controller
 
 client_socket = socket.socket()
 host = 'localhost'
