@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, '../whalesharkM2M')
+sys.path.insert(0, '/Users/prismdata/Documents/1.Data_Centric/3.1.nipa_git/WhaleShark_IIoT/whalesharkM2M')
 sys.path.insert(0, '/Users/prismdata/Documents/1.Data_Centric/3.1.nipa_git/WhaleShark_IIoT')
 print('경로 목록', sys.path)
 
