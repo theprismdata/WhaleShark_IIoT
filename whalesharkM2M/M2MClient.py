@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import binascii
 import json
 import socket
 import time
 import minimalmodbus
 import serial
 from datetime import datetime
-
+import os, sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+print('Module Run path:', os.getcwd())
+os.chdir(os.getcwd())
 from datautil.hexconversion import str2hex, int2hex
 from config.info_reader import read_controller
 

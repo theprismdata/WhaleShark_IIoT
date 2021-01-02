@@ -12,8 +12,9 @@
 #
 import os
 import sys
-# sys.path.insert(0, '../WhaleShark_IIoT/whalesharkM2M')
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+cur_path = os.getcwd()
+cur_path = cur_path.replace('docs','whalesharkM2M')
+sys.path.append(cur_path)
 print('현재 경로', os.getcwd())
 # -- Project information -----------------------------------------------------
 
