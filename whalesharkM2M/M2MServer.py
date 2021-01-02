@@ -1,19 +1,23 @@
 # -*- coding: utf-8 -*-
 import asyncio
+import os
 import socket
 import logging
 from pprint import pprint
-
 import redis
 import yaml
 import sys
 import json
 import pika
-import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from whalesharkM2M.config.info_reader import read_deviceinfo
-from whalesharkM2M.msgmanager.msgcontroller import  MSGController
+from whalesharkM2M.msgmanager.msgcontroller import MSGController
+
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',stream=sys.stdout, level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
 logging.getLogger("pika").propagate = False
+
+
 """
 grafana docker
 docker run -d -p 3000:3000 grafana/grafana

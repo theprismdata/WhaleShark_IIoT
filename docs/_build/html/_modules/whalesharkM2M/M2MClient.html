@@ -154,7 +154,9 @@
 <span class="kn">import</span> <span class="nn">minimalmodbus</span>
 <span class="kn">import</span> <span class="nn">serial</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))))</span>
 <span class="kn">from</span> <span class="nn">whalesharkM2M.datautil.hexconversion</span> <span class="kn">import</span> <span class="n">str2hex</span><span class="p">,</span> <span class="n">int2hex</span>
 <span class="kn">from</span> <span class="nn">whalesharkM2M.config.info_reader</span> <span class="kn">import</span> <span class="n">read_controller</span>
 
@@ -165,7 +167,7 @@
 
 <div class="viewcode-block" id="get_serialinterface"><a class="viewcode-back" href="../../whalesharkM2M.M2MClient.html#whalesharkM2M.M2MClient.get_serialinterface">[docs]</a><span class="k">def</span> <span class="nf">get_serialinterface</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">slaveaddr</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">baudrate</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    시스템에 연결된 직렬 포트 정보를 할당받아 리턴한다.</span>
+<span class="sd">    시스템에 연결된 직렬 포트 정보를 할당받아 리턴한다.&lt;br&gt;</span>
 <span class="sd">    Allocates and returns serial port information connected to the system.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">instrument</span> <span class="o">=</span> <span class="n">minimalmodbus</span><span class="o">.</span><span class="n">Instrument</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">slaveaddr</span><span class="p">)</span>
