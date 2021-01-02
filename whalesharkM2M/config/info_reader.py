@@ -2,9 +2,9 @@ import os
 import pandas as pd
 
 def read_controller(filepath):
-    '''
-    filepath의 csv타입 데이터를 dataframe으로 변환하여 리턴한다.
-    '''
+    """
+    Return dataframe from csv file
+    """
     try:
         controller_df = pd.read_csv(filepath)
         return controller_df
@@ -12,9 +12,9 @@ def read_controller(filepath):
         print(e)
         
 def read_deviceinfo(config_path):
-    '''
-    controllerinfo.csv로부터 장비 연결 정보들을 로딩한다.
-    '''
+    """
+    Return information dictionary which has device info (controllerinfo.csv)
+    """
     try:
         base_path = os.getcwd()
         ctrl_info_path = config_path + '/controllerinfo.csv'

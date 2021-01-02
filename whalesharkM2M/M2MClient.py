@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import binascii
 import json
@@ -18,9 +18,9 @@ port = 1233
 
 
 def get_serialinterface(port, slaveaddr, mode, baudrate):
-    '''
-    시스템과 연결될 직렬포트에 대한 정보를 할당하여 리턴한다.
-    '''
+    """
+    Return the resource assigned serial port with system
+    """
     instrument = minimalmodbus.Instrument(port, slaveaddr)
     instrument.serial.baudrate = baudrate  # Baud
     instrument.serial.bytesize = 8
@@ -32,9 +32,9 @@ def get_serialinterface(port, slaveaddr, mode, baudrate):
 
 
 def send_status(instrument_list, conn):
-    '''
-    설비의 상태를 읽고 확인한다.
-    '''
+    """
+    Print device status
+    """
     for instrument in instrument_list:
         try:
             conn = instrument['conn']
@@ -47,9 +47,6 @@ def send_status(instrument_list, conn):
 
 
 if __name__ == '__main__':
-    '''
-    서버와 연결될 소켓을 열고 설비 정보를 읽어 정보를 메모리에 저장한 후 설비로 부터 측정값, 상태값 등을 읽어봐 서버로 전송한다. 
-    '''
     try:
         client_socket.connect((host, port))
     except Exception as e:
