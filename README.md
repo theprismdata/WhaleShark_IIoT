@@ -25,7 +25,7 @@ RABBITMQ_DEFAULT_PASS=whaleshark rabbitmq:3-management
 if container is exist
  docker restart  whaleshark-rabbit
 ### API
- https://whaleshark-iiot.readthedocs.io/ko/latest/#
+ https://whaleshark-iiot.readthedocs.io/index.html
  
 ## Download
  - [Last Release] (https://github.com/dataignitelab/WhaleShark_IIoT)
