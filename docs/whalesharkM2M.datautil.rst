@@ -4,13 +4,10 @@ whalesharkM2M.datautil package
 Submodules
 ----------
 
-whalesharkM2M.datautil.hexconversion module
--------------------------------------------
+.. toctree::
+   :maxdepth: 4
 
-.. automodule:: whalesharkM2M.datautil.hexconversion
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   whalesharkM2M.datautil.hexconversion
 
 Module contents
 ---------------

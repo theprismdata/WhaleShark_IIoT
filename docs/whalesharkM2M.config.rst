@@ -4,13 +4,10 @@ whalesharkM2M.config package
 Submodules
 ----------
 
-whalesharkM2M.config.info\_reader module
-----------------------------------------
+.. toctree::
+   :maxdepth: 4
 
-.. automodule:: whalesharkM2M.config.info_reader
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   whalesharkM2M.config.info_reader
 
 Module contents
 ---------------

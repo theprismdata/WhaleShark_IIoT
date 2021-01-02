@@ -14,29 +14,12 @@ Subpackages
 Submodules
 ----------
 
-whalesharkM2M.M2MClient module
-------------------------------
+.. toctree::
+   :maxdepth: 4
 
-.. automodule:: whalesharkM2M.M2MClient
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-whalesharkM2M.M2MServer module
-------------------------------
-
-.. automodule:: whalesharkM2M.M2MServer
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-whalesharkM2M.TSDBAgent module
-------------------------------
-
-.. automodule:: whalesharkM2M.TSDBAgent
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   whalesharkM2M.M2MClient
+   whalesharkM2M.M2MServer
+   whalesharkM2M.TSDBAgent
 
 Module contents
 ---------------

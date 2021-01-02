@@ -193,7 +193,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="TcpServer"><a class="viewcode-back" href="../../whalesharkM2M.html#whalesharkM2M.M2MServer.TcpServer">[docs]</a><span class="k">class</span> <span class="nc">TcpServer</span><span class="p">:</span>
+<div class="viewcode-block" id="TcpServer"><a class="viewcode-back" href="../../whalesharkM2M.M2MServer.html#whalesharkM2M.M2MServer.TcpServer">[docs]</a><span class="k">class</span> <span class="nc">TcpServer</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
@@ -217,7 +217,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">exchange</span> <span class="o">=</span> <span class="n">config_obj</span><span class="p">[</span><span class="s1">&#39;iiot_server&#39;</span><span class="p">][</span><span class="s1">&#39;rabbit_mq&#39;</span><span class="p">][</span><span class="s1">&#39;exchange&#39;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">exchange_type</span> <span class="o">=</span> <span class="n">config_obj</span><span class="p">[</span><span class="s1">&#39;iiot_server&#39;</span><span class="p">][</span><span class="s1">&#39;rabbit_mq&#39;</span><span class="p">][</span><span class="s1">&#39;exchange_type&#39;</span><span class="p">]</span>
 
-<div class="viewcode-block" id="TcpServer.connect_redis"><a class="viewcode-back" href="../../whalesharkM2M.html#whalesharkM2M.M2MServer.TcpServer.connect_redis">[docs]</a>    <span class="k">def</span> <span class="nf">connect_redis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+<div class="viewcode-block" id="TcpServer.connect_redis"><a class="viewcode-back" href="../../whalesharkM2M.M2MServer.html#whalesharkM2M.M2MServer.TcpServer.connect_redis">[docs]</a>    <span class="k">def</span> <span class="nf">connect_redis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        :param host: redis access host ip</span>
 <span class="sd">        :param port: redis access port</span>
@@ -237,7 +237,7 @@
 
         <span class="k">return</span> <span class="n">redis_obj</span></div>
 
-<div class="viewcode-block" id="TcpServer.config_equip_desc"><a class="viewcode-back" href="../../whalesharkM2M.html#whalesharkM2M.M2MServer.TcpServer.config_equip_desc">[docs]</a>    <span class="k">def</span> <span class="nf">config_equip_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+<div class="viewcode-block" id="TcpServer.config_equip_desc"><a class="viewcode-back" href="../../whalesharkM2M.M2MServer.html#whalesharkM2M.M2MServer.TcpServer.config_equip_desc">[docs]</a>    <span class="k">def</span> <span class="nf">config_equip_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Configure redis for equipment sensor desc(sensor_cd)</span>
 <span class="sd">        key : const sensor_cd</span>
@@ -257,7 +257,7 @@
 
         <span class="k">return</span> <span class="n">redis_con</span></div>
 
-<div class="viewcode-block" id="TcpServer.get_messagequeue"><a class="viewcode-back" href="../../whalesharkM2M.html#whalesharkM2M.M2MServer.TcpServer.get_messagequeue">[docs]</a>    <span class="k">def</span> <span class="nf">get_messagequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
+<div class="viewcode-block" id="TcpServer.get_messagequeue"><a class="viewcode-back" href="../../whalesharkM2M.M2MServer.html#whalesharkM2M.M2MServer.TcpServer.get_messagequeue">[docs]</a>    <span class="k">def</span> <span class="nf">get_messagequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        get message queue connector (rabbit mq) with address, port</span>
 <span class="sd">        :param address: rabbit mq server ip</span>
@@ -276,7 +276,7 @@
 
         <span class="k">return</span> <span class="n">channel</span></div>
 
-<div class="viewcode-block" id="TcpServer.init_config"><a class="viewcode-back" href="../../whalesharkM2M.html#whalesharkM2M.M2MServer.TcpServer.init_config">[docs]</a>    <span class="k">def</span> <span class="nf">init_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TcpServer.init_config"><a class="viewcode-back" href="../../whalesharkM2M.M2MServer.html#whalesharkM2M.M2MServer.TcpServer.init_config">[docs]</a>    <span class="k">def</span> <span class="nf">init_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">redis_con</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_equip_desc</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">redis_host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">redis_port</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis_con</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;redis configuration fail&#39;</span><span class="p">)</span>
@@ -287,13 +287,13 @@
             <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;rabbitmq configuration fail&#39;</span><span class="p">)</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="TcpServer.get_redis_con"><a class="viewcode-back" href="../../whalesharkM2M.html#whalesharkM2M.M2MServer.TcpServer.get_redis_con">[docs]</a>    <span class="k">def</span> <span class="nf">get_redis_con</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TcpServer.get_redis_con"><a class="viewcode-back" href="../../whalesharkM2M.M2MServer.html#whalesharkM2M.M2MServer.TcpServer.get_redis_con">[docs]</a>    <span class="k">def</span> <span class="nf">get_redis_con</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis_con</span></div>
 
-<div class="viewcode-block" id="TcpServer.get_mq_channel"><a class="viewcode-back" href="../../whalesharkM2M.html#whalesharkM2M.M2MServer.TcpServer.get_mq_channel">[docs]</a>    <span class="k">def</span> <span class="nf">get_mq_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TcpServer.get_mq_channel"><a class="viewcode-back" href="../../whalesharkM2M.M2MServer.html#whalesharkM2M.M2MServer.TcpServer.get_mq_channel">[docs]</a>    <span class="k">def</span> <span class="nf">get_mq_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mq_channel</span></div>
 
-<div class="viewcode-block" id="TcpServer.get_server_socket"><a class="viewcode-back" href="../../whalesharkM2M.html#whalesharkM2M.M2MServer.TcpServer.get_server_socket">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TcpServer.get_server_socket"><a class="viewcode-back" href="../../whalesharkM2M.M2MServer.html#whalesharkM2M.M2MServer.TcpServer.get_server_socket">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
         <span class="n">server_socket</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tcp_port</span><span class="p">))</span>

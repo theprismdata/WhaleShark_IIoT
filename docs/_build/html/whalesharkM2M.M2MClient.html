@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>whalesharkM2M.msgmanager package &mdash; WhaleShark_IIoT  documentation</title>
+  <title>whalesharkM2M.M2MClient module &mdash; WhaleShark_IIoT  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="whalesharkM2M.msgmanager.msgcontroller module" href="whalesharkM2M.msgmanager.msgcontroller.html" />
-    <link rel="prev" title="whalesharkM2M.datautil.hexconversion module" href="whalesharkM2M.datautil.hexconversion.html" /> 
+    <link rel="next" title="whalesharkM2M.M2MServer module" href="whalesharkM2M.M2MServer.html" />
+    <link rel="prev" title="whalesharkM2M.msgmanager.signalkiller module" href="whalesharkM2M.msgmanager.signalkiller.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,17 +84,13 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="whalesharkM2M.html">whalesharkM2M package</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="whalesharkM2M.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="whalesharkM2M.config.html">whalesharkM2M.config package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="whalesharkM2M.datautil.html">whalesharkM2M.datautil package</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">whalesharkM2M.msgmanager package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-whalesharkM2M.msgmanager">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whalesharkM2M.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="whalesharkM2M.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">whalesharkM2M.M2MClient module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="whalesharkM2M.M2MServer.html">whalesharkM2M.M2MServer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="whalesharkM2M.TSDBAgent.html">whalesharkM2M.TSDBAgent module</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="whalesharkM2M.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whalesharkM2M.html#module-whalesharkM2M">Module contents</a></li>
 </ul>
 </li>
@@ -146,13 +142,13 @@
         
           <li><a href="whalesharkM2M.html">whalesharkM2M package</a> &raquo;</li>
         
-      <li>whalesharkM2M.msgmanager package</li>
+      <li>whalesharkM2M.M2MClient module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/whalesharkM2M.msgmanager.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/whalesharkM2M.M2MClient.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -165,21 +161,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="whalesharkm2m-msgmanager-package">
-<h1>whalesharkM2M.msgmanager package<a class="headerlink" href="#whalesharkm2m-msgmanager-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="whalesharkM2M.msgmanager.msgcontroller.html">whalesharkM2M.msgmanager.msgcontroller module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whalesharkM2M.msgmanager.signalkiller.html">whalesharkM2M.msgmanager.signalkiller module</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="module-whalesharkM2M.msgmanager">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-whalesharkM2M.msgmanager" title="Permalink to this headline">¶</a></h2>
-<p>whalesharkM2M msgmanager</p>
-</div>
+  <div class="section" id="module-whalesharkM2M.M2MClient">
+<span id="whalesharkm2m-m2mclient-module"></span><h1>whalesharkM2M.M2MClient module<a class="headerlink" href="#module-whalesharkM2M.M2MClient" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="whalesharkM2M.M2MClient.get_serialinterface">
+<code class="sig-prename descclassname">whalesharkM2M.M2MClient.</code><code class="sig-name descname">get_serialinterface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">port</span></em>, <em class="sig-param"><span class="n">slaveaddr</span></em>, <em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">baudrate</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MClient.html#get_serialinterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MClient.get_serialinterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>시스템에 연결된 직렬 포트 정보를 할당받아 리턴한다.
+Allocates and returns serial port information connected to the system.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="whalesharkM2M.M2MClient.send_status">
+<code class="sig-prename descclassname">whalesharkM2M.M2MClient.</code><code class="sig-name descname">send_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instrument_list</span></em>, <em class="sig-param"><span class="n">conn</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/whalesharkM2M/M2MClient.html#send_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whalesharkM2M.M2MClient.send_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print device status</p>
+</dd></dl>
+
 </div>
 
 
@@ -190,10 +186,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="whalesharkM2M.msgmanager.msgcontroller.html" class="btn btn-neutral float-right" title="whalesharkM2M.msgmanager.msgcontroller module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="whalesharkM2M.M2MServer.html" class="btn btn-neutral float-right" title="whalesharkM2M.M2MServer module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="whalesharkM2M.datautil.hexconversion.html" class="btn btn-neutral float-left" title="whalesharkM2M.datautil.hexconversion module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="whalesharkM2M.msgmanager.signalkiller.html" class="btn btn-neutral float-left" title="whalesharkM2M.msgmanager.signalkiller module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
