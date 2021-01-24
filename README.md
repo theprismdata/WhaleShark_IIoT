@@ -47,6 +47,19 @@ WhaleShark IIoT, an open source monitoring system for smart factories, is a IIoT
   python3 M2MClient.py 
 
 - 추가 중요 정보
+- Ubuntu 18.04 버전에서 InfluxDB 설치
+  - 저장소를 추가합니다.
+  sudo curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+  sudo echo "deb https://repos.influxdata.com/ubuntu bionic stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+  - 라이브러리를 업데이트 하고 influxdb를 설치합니다.
+  sudo apt update
+  sudo apt install influxdb
+  - influxdb를 동작 시키고 상태를 확인합니다.
+  sudo systemctl start influxdb
+  sudo systemctl status influxdb
+  - influx cli에 접속합니다.
+  shell>influx
+  
 - Important information
   - 이 버전에서는 설비의 정보를 시스템의 직렬포트를 이용하여 획득합니다. 때문에 설비의 상태 정보를 얻기 위해서 Memory 정보가 필요할 것입니다. 이 정보는 whalesharkM2M/config/controllerinfo.csv에 저장되어 있습니다. 여러분의 설비에 환경을 맞추기 위해서는 controllerinfo.csv의 STATIONID, ADDRESS를 수정해야 합니다. 연동과 관련된 문의 사항은 Issues,Discussion에 등록하여 주시기 바랍니다.
   - In last version, We using serial port to collect facility status information. So, You will need memory map setup to get status formation. The information stored in whalesharkM2M/config/controllerinfo.csv. For setting up your facility environment, you have to edit fields(STATIONID, ADDRESS) on controllerinfo.csv.
