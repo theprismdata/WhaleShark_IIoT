@@ -11,7 +11,7 @@ import json
 import pika
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from whalesharkM2M.config.info_reader import read_deviceinfo
+from whalesharkM2M.config.info_reader import read_deviceinfo, device_path
 from whalesharkM2M.msgmanager.msgcontroller import MSGController
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',stream=sys.stdout, level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
@@ -48,6 +48,7 @@ if container is exist
         
 """
 
+config_path = os.getcwd() + '/config'+'/config_server_develop.yaml'
 
 class TcpServer:
 
@@ -55,18 +56,15 @@ class TcpServer:
         print(os.getcwd())
         base_path = os.getcwd()
         print('read yaml from:'+base_path + '/config/config_server_develop.yaml')
-        self.config_path = base_path + '/config'
-        with open(self.config_path+'/config_server_develop.yaml', 'r') as file:
+        with open(config_path, 'r') as file:
             config_obj = yaml.load(file, Loader=yaml.FullLoader)
             self.tcp_host = config_obj['iiot_server']['tcp_server']['ip_address']
             self.tcp_port = config_obj['iiot_server']['tcp_server']['port']
-
             self.redis_host = config_obj['iiot_server']['redis_server']['ip_address']
             self.redis_port = config_obj['iiot_server']['redis_server']['port']
 
             self.rabbitmq_host = config_obj['iiot_server']['rabbit_mq']['ip_address']
             self.rabbitmq_port = config_obj['iiot_server']['rabbit_mq']['port']
-
             self.rabbitmq_id = config_obj['iiot_server']['rabbit_mq']['id']
             self.rabbitmq_pwd = config_obj['iiot_server']['rabbit_mq']['pwd']
 
@@ -104,10 +102,22 @@ class TcpServer:
         try:
             redis_con = self.connect_redis(address, port)
 
-            device_info_dict = read_deviceinfo(self.config_path)
-            pprint(device_info_dict)
-            redis_con.set('dev_info', json.dumps(device_info_dict))
-        
+            self.system_key, self.deviceinfo = read_deviceinfo(device_path)
+            redis_con.set(self.system_key, json.dumps(self.deviceinfo))
+
+            #memory debug
+            # facilities_binary = redis_con.get(self.system_key)
+            # if facilities_binary is None:
+            #     self.init_facilities_info(redis_con)
+            #
+            # facilities_decoded = facilities_binary.decode()
+            # facilities_info = json.loads(facilities_decoded)
+            # print('fac_info', self.system_key, facilities_info)
+            # equipment_keys = facilities_info.keys()
+            # for equipment_key in equipment_keys:
+            #     for sensor_id in facilities_info[equipment_key].keys():
+            #         print(equipment_key, sensor_id)
+
         except Exception as e:
             logging.error(str(e))
 
@@ -126,7 +136,7 @@ class TcpServer:
             param = pika.ConnectionParameters(address, port, '/', credentials)
             connection = pika.BlockingConnection(param)
             channel = connection.channel()
-            channel.exchange_declare(exchange='facility', exchange_type='fanout')
+            channel.exchange_declare(exchange=self.exchange, exchange_type=self.exchange_type)
         except Exception as e:
             logging.exception(str(e))
 
@@ -150,6 +160,7 @@ class TcpServer:
         return self.mq_channel
 
     def get_server_socket(self):
+        logging.debug('Try to socket open with ({ip}:{port})'.format(ip=self.tcp_host, port=self.tcp_port))
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.setblocking(0)
         server_socket.bind(('', self.tcp_port))
@@ -169,8 +180,22 @@ if __name__ == '__main__':
         msg_size = 1024
         async_server = MSGController(redis_mgr)
         event_manger = asyncio.get_event_loop()
+        '''
+        self.rabbitmq_id = config_obj['iiot_server']['rabbit_mq']['id']
+        self.rabbitmq_pwd = config_obj['iiot_server']['rabbit_mq']['pwd']
+
+        self.exchange = config_obj['iiot_server']['rabbit_mq']['exchange']
+        self.exchange_type = config_obj['iiot_server']['rabbit_mq']['exchange_type']
+        '''
+        mqtt_info = dict()
+        mqtt_info['channel'] = rabbit_channel
+        mqtt_info['id'] = server.rabbitmq_id
+        mqtt_info['pwd'] = server.rabbitmq_pwd
+        mqtt_info['exchange'] = server.exchange
+        mqtt_info['exchange_type'] = server.exchange_type
+
         event_manger.run_until_complete(
-            async_server.get_client(event_manger, server_socket, msg_size, rabbit_channel))
+            async_server.get_client(event_manger, server_socket, msg_size, mqtt_info))
 
     except Exception as e:
         print(str(e))

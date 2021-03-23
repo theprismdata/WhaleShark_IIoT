@@ -23,7 +23,7 @@ def int2hex(arg_int):
     """
     Return integer values from hex values
     """
-    return hex(arg_int)
+    return '{0:04x}'.format(arg_int)
 
 def hex2int(arg_hex):
     """

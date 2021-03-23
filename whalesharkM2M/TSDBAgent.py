@@ -6,6 +6,9 @@ import sys
 import redis
 from influxdb import InfluxDBClient
 import time
+import os
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from whalesharkM2M.config.info_reader import read_deviceinfo, device_path
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
                     stream=sys.stdout, level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
@@ -17,7 +20,11 @@ class Agent:
             config_obj = yaml.load(file, Loader=yaml.FullLoader)
             self.rabbitmq_host = config_obj['iiot_server']['rabbit_mq']['ip_address']
             self.rabbitmq_port = config_obj['iiot_server']['rabbit_mq']['port']
-       
+            self.rabbitmq_id = config_obj['iiot_server']['rabbit_mq']['id']
+            self.rabbitmq_pwd = config_obj['iiot_server']['rabbit_mq']['pwd']
+            self.rabbitmq_exchange = config_obj['iiot_server']['rabbit_mq']['exchange']
+            self.rabbitmq_exchange_type = config_obj['iiot_server']['rabbit_mq']['exchange_type']
+
             self.redis_host = config_obj['iiot_server']['redis_server']['ip_address']
             self.redis_port = config_obj['iiot_server']['redis_server']['port']
         
@@ -72,7 +79,7 @@ class Agent:
             logging.error(str(exp))
         return client
 
-    def get_messagequeue(self, address, port):
+    def get_messagequeue(self, address, port, id, pwd):
         """
         If you don't have rabbitmq, you can use docker.
         docker run -d --hostname whaleshark --name whaleshark-rabbit \
@@ -86,7 +93,7 @@ class Agent:
         """
         channel = None
         try:
-            credentials = pika.PlainCredentials('whaleshark', 'whaleshark')
+            credentials = pika.PlainCredentials(id, pwd)
             param = pika.ConnectionParameters(address, port, '/', credentials)
             connection = pika.BlockingConnection(param)
             channel = connection.channel()
@@ -98,20 +105,15 @@ class Agent:
 
     def callback_mqreceive(self, ch, method, properties, body):
         body = body.decode('utf-8')
-        facility_msg_json = json.loads(body)
-        table_name = list(facility_msg_json.keys())[0]
+        equipment_msg_json = json.loads(body)
+        table_name = list(equipment_msg_json.keys())[0]
         fields = {}
         tags = {}
-        logging.debug('mqtt body:' + str(facility_msg_json))
+        logging.debug('mqtt body:' + str(equipment_msg_json))
         me_timestamp = time.time()
-        for key in facility_msg_json[table_name].keys():
-            if key != 'pub_time':
-                logging.debug('config key:' + key + 'value:' + str(facility_msg_json[table_name][key]))
-                fields[key] = float(facility_msg_json[table_name][key])
-    
-        pub_time = facility_msg_json[table_name]['pub_time']
-
-        fields['me_time'] = me_timestamp
+        for key in equipment_msg_json[table_name].keys():
+                logging.debug('config key:' + key + 'value:' + str(equipment_msg_json[table_name][key]))
+                fields[key] = float(equipment_msg_json[table_name][key])
         influx_json = [{
             'measurement': table_name,
             'fields': fields
@@ -129,7 +131,7 @@ class Agent:
         if self.influxdb_mgr is None:
             logging.error('influxdb configuration fail')
 
-        self.mq_channel = self.get_messagequeue(address=self.rabbitmq_host, port=self.rabbitmq_port)
+        self.mq_channel = self.get_messagequeue(address=self.rabbitmq_host, port=self.rabbitmq_port, id = self.rabbitmq_id, pwd = self.rabbitmq_pwd)
         if self.mq_channel is None:
                 logging.error('rabbitmq configuration fail')
             
@@ -139,11 +141,14 @@ class Agent:
         return self.influxdb_mgr
     
     def syncmessage(self):
-        devinfo = json.loads(self.redis_mgr.get('dev_info'))
+        self.device_key, self.deviceinfo = read_deviceinfo(device_path)
+        devinfo = json.loads(self.redis_mgr.get(self.device_key))
         for dev_id in devinfo.keys():
             result = self.mq_channel.queue_declare(queue=dev_id, exclusive=True)
             tx_queue = result.method.queue
-            self.mq_channel.queue_bind(exchange='facility', queue=tx_queue)
+            exchange_name = self.rabbitmq_exchange
+            logging.debug('{did} mqtt exchange {exc}'.format(did = dev_id, exc = exchange_name))
+            self.mq_channel.queue_bind(exchange=exchange_name, queue=tx_queue)
             call_back_arg = {'measurement': tx_queue}
             try:
                 self.mq_channel.basic_consume(tx_queue, on_message_callback=self.callback_mqreceive)
