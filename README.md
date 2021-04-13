@@ -42,10 +42,12 @@ WhaleShark IIoT, an open source monitoring system for smart factories, is a IIoT
 - Step 5: Run next script to sync Influxdb
   python3 TSDBAgent.py
   
-- Step 6: 직렬 포트로 설비와 연결된 시스템(Windows or Linux)에서 다음의 명령으로 IIoT 에이전트를 수행합니다.
+- Step 6: 직렬 포트 및 TCP로 설비와 연결된 시스템(Windows or Linux)에서 다음의 명령으로 IIoT 에이전트를 수행합니다.
 - Step 6: Run next scipt to run IIoT agent on your system(windows or linux) has connection with serial port
-  python3 M2MClient.py 
-
+  python3 M2MClient_MultiDevice.py
+  - 이때 연결 설정 정보는 config/controllerinfo.csv를 참조하게 됩니다.
+  - controller의 구성.
+    [작성중...]
 - 추가 중요 정보
 - Ubuntu 18.04 버전에서 InfluxDB 설치
   - 저장소를 추가합니다.
